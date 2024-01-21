@@ -1,9 +1,13 @@
 {
     "tc_001": {
-        "tc_title": "get a pet with valid petId",
+        "tc_title": "[GET] get a pet with valid petId",
         "is_run": true,
-        "tc_data": {
-            "petId": 2
+        "pet_id": 2,
+        "query_param": {
+
+        },
+        "tc_request": {
+
         },
         "tc_validator": {
             "http_code": 200,
