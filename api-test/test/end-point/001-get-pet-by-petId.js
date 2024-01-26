@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
-const { getPetByPetId } = require('../api/pet-api.js');
-const testData = require('../data/get-pet-by-petId-data.json');
+const { getPetByPetId } = require('../../api/pet-api.js');
+const testData = require('../../data/get-pet-by-petId-data.json');
 
 describe('API Check getPetByPetId', () => {
     it(`${testData.tc_001.tc_title}`, async () => {
