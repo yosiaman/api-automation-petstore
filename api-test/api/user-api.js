@@ -31,10 +31,10 @@ const createUserWithList = (requestBody) => request.post(`/user/createWithList`)
     .set('Accept', 'application/json')
     .send(requestBody);
 
-const userLogin = (userName, password) => request.get(`/user/login`)
+const userLogin = (userAccount) => request.get(`/user/login`)
     .set('Content-Type', 'application/json')
     .set('Accept', 'application/json')
-    .query({username: userName, password: password});
+    .query(userAccount);
 
 const userLogout = () => request.get(`/user/logout`)
     .set('Content-Type', 'application/json')
