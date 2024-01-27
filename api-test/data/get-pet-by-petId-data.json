@@ -1,7 +1,7 @@
 {
-    "tc_001": {
-        "tc_title": "[GET] get a pet with valid petId",
-        "is_run": true,
+    "TC_001": {
+        "tc_title": "[001][GET] get a pet with valid petId",
+        "is_run": false,
         "pet_id": 2,
         "query_param": {
 
@@ -15,7 +15,7 @@
             "parent_keys": ["id", "category", "name", "photoUrls", "tags", "status"]
         }
     },
-    "tc_002": {
+    "TC_002": {
 
     }
 }
