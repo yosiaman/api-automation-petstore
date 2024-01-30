@@ -1,0 +1,34 @@
+{
+    "TC_001": {
+        "tc_title": "[001][POST] create a new pet",
+        "is_run": true,
+        "query_param": {
+
+        },
+        "tc_request_body": {
+            "id": 999,
+            "category": {
+                "id": 0,
+                "name": "string"
+            },
+            "name": "doggie",
+            "photoUrls": [
+                "string"
+            ],
+            "tags": [
+                {
+                    "id": 0,
+                    "name": "string"
+                }
+            ],
+            "status": "available"
+        },
+        "tc_validator": {
+            "http_code": 200,
+            "http_status": "OK"
+        }
+    },
+    "TC_002": {
+
+    }
+}
