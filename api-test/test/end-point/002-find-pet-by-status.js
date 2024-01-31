@@ -1,4 +1,4 @@
-const expect = require('chai').expect;
+const { expect } = require('chai');
 const { findPetByStatus } = require('../../api/pet-api.js');
 let testData = require('../../data/002-find-pet-by-status-data.json');
 
