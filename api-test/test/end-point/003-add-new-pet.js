@@ -1,4 +1,5 @@
-const expect = require('chai').expect;
+const { expect } = require('chai');
+const { conforms } = require('lodash');
 const { addNewPet, getPetByPetId } = require('../../api/pet-api');
 let testData = require('../../data/003-add-new-pet-data.json');
 const { getPetStatus, getPetCategory, getPetId, getPetName,
@@ -11,20 +12,36 @@ describe('API Check addNewPet', () => {
     it(`${testData.TC_001.tc_title}`, async function() {
         if (testData.TC_001.is_run) {
             // compose request body
-            testData.TC_001.tc_request_body.id = getPetId();
-            testData.TC_001.tc_request_body.name = getPetName();
-            testData.TC_001.tc_request_body.status = getPetStatus();
-            testData.TC_001.tc_request_body.category = getPetCategory();
-            testData.TC_001.tc_request_body.tags = getPetTags();
+            let tc_request_body = testData.TC_001.tc_request_body;
+            const tc_validator = testData.TC_001.tc_validator
+            tc_request_body.id = getPetId();
+            tc_request_body.name = getPetName();
+            tc_request_body.status = getPetStatus();
+            tc_request_body.category = getPetCategory();
+            tc_request_body.tags = getPetTags();
 
-            // request
-            const response = await addNewPet(testData.TC_001.tc_request_body);
+            // api hit
+            const response = await addNewPet(tc_request_body);
 
-            // response checking
-            expect(response.status).to.equal(testData.TC_001.tc_validator.http_code);
+            // response structure checking
+            expect(response.status).to.equal(tc_validator.http_code);
+            expect(response.body).to.have.keys(tc_validator.parent_keys);
+            expect(response.body.category).to.be.an(tc_validator.category_type);
+            expect(response.body.tags).to.be.an(tc_validator.tags_type);
+
+            // response content checking
+            expect(response.body.id).to.equal(tc_request_body.id);
+            expect(response.body.name).to.equal(tc_request_body.name);
+            expect(response.body.status).to.equal(tc_request_body.status);
+            expect(response.body.category.id).to.equal(tc_request_body.category.id);
+            expect(response.body.category.name).to.equal(tc_request_body.category.name)
+            for (var i=0; i<tc_request_body.tags.length; i++) {
+                expect(response.body.tags[i].id).to.equal(tc_request_body.tags[i].id);
+                expect(response.body.tags[i].name).to.equal(tc_request_body.tags[i].name);
+            }
 
             // bring to describe data
-            postRequest = testData.TC_001.tc_request_body;
+            postRequest = tc_request_body;
         } else {
             this.skip();
         }
