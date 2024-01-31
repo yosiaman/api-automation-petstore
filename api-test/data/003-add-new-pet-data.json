@@ -25,10 +25,13 @@
         },
         "tc_validator": {
             "http_code": 200,
-            "http_status": "OK"
+            "http_status": "OK",
+            "parent_keys": ["id", "category", "name", "photoUrls", "tags", "status"],
+            "tags_type": "array",
+            "category_type": "object"
         }
     },
     "TC_002": {
-
+       
     }
 }
