@@ -1,7 +1,8 @@
 {
     "TC_001": {
         "tc_title": "[001][POST] create a new pet",
-        "is_run": true,
+        "tc_description": "",
+        "is_run": false,
         "query_param": {
 
         },
@@ -28,10 +29,43 @@
             "http_status": "OK",
             "parent_keys": ["id", "category", "name", "photoUrls", "tags", "status"],
             "tags_type": "array",
-            "category_type": "object"
+            "photoUrls_type": "array",
+            "category_type": "object",
+            "id_type": "number",
+            "name_type": "string",
+            "status_type": "string"
         }
     },
     "TC_002": {
-       
+        "tc_title": "[002][POST] create a duplicated pet",
+        "tc_description": "",
+        "is_run": true,
+        "query_param": {
+
+        },
+        "tc_request_body": {
+            "id": 999,
+            "category": {
+                "id": 0,
+                "name": "string"
+            },
+            "name": "doggie",
+            "photoUrls": [
+                "string"
+            ],
+            "tags": [
+                {
+                    "id": 0,
+                    "name": "string"
+                }
+            ],
+            "status": "available"
+        },
+        "tc_validator": {
+            "http_code": 200,
+            "http_status": "OK",
+            "duplicated_http_code": 409,
+            "duplicated_http_status": "Conflict"
+        }
     }
 }
