@@ -23,7 +23,6 @@ describe('API Check addNewPet', () => {
 
             // api hit
             const response = await addNewPet(tc_request_body);
-            console.log(response.body);
 
             // response structure checking
             expect(response.status).to.equal(tc_validator.http_code);
