@@ -12,10 +12,10 @@ const addNewPet = (requestBody) => request.post(`/pet`)
     .set('Accept', 'application/json')
     .send(requestBody);
 
-const uploadPetImage = (petId, requestBody) => request.post(`/pet/${petId}/uploadImage`)
-    .set('Content-Type', 'application/json')
-    .set('Accept', 'application/json')
-    .send(requestBody);
+const uploadPetImage = (petId, formData) => request.post(`/pet/${petId}/uploadImage`)
+    .set('Content-Type', 'multipart/form-data')
+    .set('accept', 'application/json')
+    .attach(Object.keys(formData)[1], formData[Object.keys(formData)[1]]);
 
 const updatePet = (requestBody) => request.put(`/pet`)
     .set('Content-Type', 'application/json')
