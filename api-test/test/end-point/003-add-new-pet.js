@@ -5,7 +5,7 @@ const { getPetStatus, getPetCategory, getPetId, getPetName, getPetTags } = requi
 
 describe('API Check addNewPet', () => {
     // describe data
-    let postRequest = {};
+    let createPetRequest = {};
 
     // set delay for each case
     beforeEach(done => setTimeout(done, 1000));
@@ -52,7 +52,7 @@ describe('API Check addNewPet', () => {
             }
 
             // bring to describe data
-            postRequest = tc_request_body;
+            createPetRequest = tc_request_body;
         } else {
             this.skip();
         }
@@ -79,7 +79,7 @@ describe('API Check addNewPet', () => {
             expect(response2.status).to.equal(tc_validator.duplicated_http_code);
 
             // bring to describe data
-            postRequest = tc_request_body;
+            createPetRequest = tc_request_body;
         } else {
             this.skip();
         }
@@ -89,20 +89,20 @@ describe('API Check addNewPet', () => {
         // check only the passed case
         if (this.currentTest.state == 'passed') {
             // check the data integrity between post and get pet api
-            const response = await getPetByPetId(postRequest.id);
+            const response = await getPetByPetId(createPetRequest.id);
             expect(response.status).to.equal(200);
-            expect(response.body.id).to.equal(postRequest.id);
-            expect(response.body.name).to.equal(postRequest.name);
-            expect(response.body.status).to.equal(postRequest.status);
-            expect(response.body.category.id).to.equal(postRequest.category.id);
-            expect(response.body.category.name).to.equal(postRequest.category.name)
-            for (var i=0; i<postRequest.tags.length; i++) {
-                expect(response.body.tags[i].id).to.equal(postRequest.tags[i].id);
-                expect(response.body.tags[i].name).to.equal(postRequest.tags[i].name);
+            expect(response.body.id).to.equal(createPetRequest.id);
+            expect(response.body.name).to.equal(createPetRequest.name);
+            expect(response.body.status).to.equal(createPetRequest.status);
+            expect(response.body.category.id).to.equal(createPetRequest.category.id);
+            expect(response.body.category.name).to.equal(createPetRequest.category.name)
+            for (var i=0; i<createPetRequest.tags.length; i++) {
+                expect(response.body.tags[i].id).to.equal(createPetRequest.tags[i].id);
+                expect(response.body.tags[i].name).to.equal(createPetRequest.tags[i].name);
             }
         }
 
         // reset used describe data
-        postRequest = {};
+        createPetRequest = {};
     })
 })
