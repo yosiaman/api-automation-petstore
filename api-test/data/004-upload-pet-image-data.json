@@ -1,0 +1,26 @@
+{
+    "TC_001": {
+        "tc_title": "[001][POST] upload pet image",
+        "is_run": true,
+        "pet_id": 2,
+        "file_path": "",
+        "query_param": {
+
+        },
+        "tc_request": {
+
+        },
+        "tc_validator": {
+            "http_code": 200,
+            "http_status": "OK",
+            "parent_keys": ["code", "type", "message"],
+            "code_type": "number",
+            "type_type": "string",
+            "message_type": "string"
+
+        }
+    },
+    "TC_002": {
+
+    }
+}
