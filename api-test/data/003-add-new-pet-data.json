@@ -2,7 +2,7 @@
     "TC_001": {
         "tc_title": "[001][POST] create a new pet",
         "tc_description": "",
-        "is_run": false,
+        "is_run": true,
         "query_param": {
 
         },

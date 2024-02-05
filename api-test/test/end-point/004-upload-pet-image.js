@@ -48,7 +48,6 @@ describe('API Check uploadPetImage', () => {
         const tc_validator = testData.TC_001.tc_validator;
         if (testData.TC_001.is_run) {
             const response = await uploadPetImage(testData.TC_001.pet_id, formData);
-            console.log(response.body);
             expect(response.status).to.equal(testData.TC_001.tc_validator.http_code);
             expect(response.body.code).to.equal(testData.TC_001.tc_validator.http_code);
             expect(response.body.message).to.include(formData.fileName);

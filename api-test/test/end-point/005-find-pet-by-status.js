@@ -23,7 +23,6 @@ describe('API Check findPetByStatus', () => {
                     response.body.slice(-1)[0]
                 ]
                 for (const item of repResponse) {
-                    console.log(item);
                     expect(item.status).to.equal(query_param.status);
                     expect(item).to.have.keys(tc_validator.parent_keys);
                     expect(item.category).to.be.an(tc_validator.category_type);

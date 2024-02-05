@@ -1,7 +1,7 @@
 {
     "TC_001": {
         "tc_title": "[001][GET] get a pet with valid petId",
-        "is_run": false,
+        "is_run": true,
         "pet_id": 2,
         "query_param": {
 

@@ -1,7 +1,7 @@
 {
     "TC_001": {
         "tc_title": "[001][GET] find pet by valid status : available",
-        "is_run": false,
+        "is_run": true,
         "query_param": {
             "status": "available"
         },
@@ -15,7 +15,7 @@
     },
     "TC_002": {
         "tc_title": "[002][GET] find pet by valid status : pending",
-        "is_run": false,
+        "is_run": true,
         "query_param": {
             "status": "pending"
         },
@@ -29,7 +29,7 @@
     },
     "TC_003": {
         "tc_title": "[003][GET] find pet by valid status : sold",
-        "is_run": false,
+        "is_run": true,
         "query_param": {
             "status": "sold"
         },

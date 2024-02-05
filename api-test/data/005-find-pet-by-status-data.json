@@ -4,7 +4,7 @@
         "is_run": true,
         "pet_id": 2,
         "query_param": {
-
+            "status": "sold"
         },
         "tc_request_body": {
 
