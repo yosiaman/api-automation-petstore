@@ -1,0 +1,27 @@
+{
+    "TC_001": {
+        "tc_title": "[001][GET] find pet with valid pet status",
+        "is_run": true,
+        "pet_id": 2,
+        "query_param": {
+
+        },
+        "tc_request_body": {
+
+        },
+        "tc_validator": {
+            "http_code": 200,
+            "http_status": "OK",
+            "parent_keys": ["id", "category", "name", "photoUrls", "tags", "status"],
+            "tags_type": "array",
+            "photoUrls_type": "array",
+            "category_type": "object",
+            "id_type": "number",
+            "name_type": "string",
+            "status_type": "string"
+        }
+    },
+    "TC_002": {
+
+    }
+}
